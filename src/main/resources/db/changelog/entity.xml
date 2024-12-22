@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- Changeset per la tabella Luogo -->
+    <changeSet id="1" author="simonecapone">
+        <createTable tableName="locations">
+            <column name="location_id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="airport_code" type="VARCHAR(5)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="city" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- Changeset per la tabella Aereo -->
+    <changeSet id="2" author="simonecapone">
+        <createTable tableName="airplanes">
+            <column name="airplane_id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="model" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="capacity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="crew_capacity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- Changeset per la tabella Voli -->
+    <changeSet id="3" author="simonecapone">
+        <createTable tableName="flights">
+            <column name="flight_id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="flight_number" type="VARCHAR(10)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="airplane_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_flight_airplane" referencedTableName="airplanes" referencedColumnNames="airplane_id"/>
+            </column>
+            <column name="departure_time" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="arrival_time" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="origin_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_flight_origin" referencedTableName="locations" referencedColumnNames="location_id"/>
+            </column>
+            <column name="destination_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_flight_destination" referencedTableName="locations" referencedColumnNames="location_id"/>
+            </column>
+            <column name="status" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- Changeset per la tabella Staff -->
+    <changeSet id="5" author="simonecapone">
+        <createTable tableName="staff">
+            <column name="staff_id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="airplane_id" type="INT">
+                <constraints foreignKeyName="fk_staff_airplane" referencedTableName="airplanes" referencedColumnNames="airplane_id"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- Changeset per la tabella Personale di Bordo -->
+    <changeSet id="4" author="simonecapone">
+        <createTable tableName="flight_crew">
+            <column name="crew_id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="flight_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_crew_flight" referencedTableName="flights" referencedColumnNames="flight_id"/>
+            </column>
+            <column name="staff_id" type="INT">
+                <constraints nullable="false" foreignKeyName="fk_crew_staff" referencedTableName="staff" referencedColumnNames="staff_id"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
