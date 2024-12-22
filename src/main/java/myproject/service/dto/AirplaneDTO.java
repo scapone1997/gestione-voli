@@ -1,26 +1,11 @@
-package myproject.domain;
-
+package myproject.service.dto;
 
 import lombok.*;
 
-import jakarta.persistence.*;
-import lombok.experimental.Accessors;
-
-@Entity
-@Table(name = "airplanes")
-public class Airplane {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "airplane_id")
+public class AirplaneDTO {
     private Integer airplaneId;
-
-    @Column(nullable = false, length = 50)
     private String model;
-
-    @Column(nullable = false)
     private Integer capacity;
-
-    @Column(name = "crew_capacity", nullable = false)
     private Integer crewCapacity;
 
     public Integer getAirplaneId() {
@@ -55,4 +40,3 @@ public class Airplane {
         this.crewCapacity = crewCapacity;
     }
 }
-

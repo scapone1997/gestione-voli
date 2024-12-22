@@ -18,8 +18,4 @@ public class Staff {
 
     @Column(nullable = false, length = 50)
     private String role;
-
-    @ManyToOne
-    @JoinColumn(name = "airplane_id")
-    private Airplane airplane;
 }

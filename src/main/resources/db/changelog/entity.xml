@@ -83,9 +83,6 @@
             <column name="role" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="airplane_id" type="INT">
-                <constraints foreignKeyName="fk_staff_airplane" referencedTableName="airplanes" referencedColumnNames="airplane_id"/>
-            </column>
         </createTable>
     </changeSet>
 
