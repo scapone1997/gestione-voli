@@ -10,7 +10,8 @@ import lombok.experimental.Accessors;
 @Table(name = "airplanes")
 public class Airplane {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gestioniVoliSequenza")
+    @SequenceGenerator(name = "gestioniVoliSequenza", allocationSize = 1)
     @Column(name = "airplane_id")
     private Integer airplaneId;
 

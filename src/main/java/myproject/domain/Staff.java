@@ -1,6 +1,7 @@
 package myproject.domain;
 
 import jakarta.persistence.*;
+import myproject.domain.enumeratori.Role;
 
 @Entity
 @Table(name = "staff")
@@ -14,7 +15,8 @@ public class Staff {
     private String name;
 
     @Column(nullable = false, length = 50)
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     public Integer getStaffId() {
         return staffId;
@@ -32,11 +34,11 @@ public class Staff {
         this.name = name;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 }

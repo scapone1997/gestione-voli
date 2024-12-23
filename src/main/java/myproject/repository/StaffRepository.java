@@ -9,4 +9,9 @@ import java.util.List;
 
 @ApplicationScoped
 public class StaffRepository implements PanacheRepository<Staff> {
+
+    public Staff save(Staff staff){
+        persist(staff);
+        return staff;
+    }
 }

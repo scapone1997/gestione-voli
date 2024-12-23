@@ -3,6 +3,8 @@ package myproject.service;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
+import myproject.domain.Staff;
 import myproject.repository.StaffRepository;
 import myproject.service.dto.StaffDTO;
 import myproject.service.mapper.StaffMapper;
@@ -11,6 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @ApplicationScoped
+@Transactional
 public class StaffService {
 
     @Inject
@@ -27,4 +30,8 @@ public class StaffService {
     }
 
 
+    public StaffDTO createStaff(StaffDTO staffDTO) {
+        Staff staff = staffRepository.save(staffMapper.toEntity(staffDTO));
+        return staffMapper.toDTO(staff);
+    }
 }

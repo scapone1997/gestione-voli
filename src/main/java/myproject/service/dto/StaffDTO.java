@@ -1,10 +1,12 @@
 package myproject.service.dto;
 
+import myproject.domain.enumeratori.Role;
+
 public class StaffDTO {
 
     private Integer staffId;
     private String name;
-    private String role;
+    private Role role;
 
     public Integer getStaffId() {
         return staffId;
@@ -22,11 +24,11 @@ public class StaffDTO {
         this.name = name;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 }

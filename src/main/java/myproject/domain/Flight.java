@@ -10,7 +10,9 @@ import java.util.List;
 @Table(name = "flights")
 public class Flight {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gestioniVoliSequenza")
+    @SequenceGenerator(name = "gestioniVoliSequenza", allocationSize = 1)
+    @Column(name= "flight_id")
     private Integer flightId;
 
     @Column(nullable = false, unique = true, length = 10)
