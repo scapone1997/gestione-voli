@@ -10,22 +10,21 @@ import java.util.List;
 @Table(name = "flights")
 public class Flight {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gestioniVoliSequenza")
-    @SequenceGenerator(name = "gestioniVoliSequenza", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name= "flight_id")
     private Integer flightId;
 
-    @Column(nullable = false, unique = true, length = 10)
+    @Column(name = "flight_number", nullable = false, unique = true, length = 10)
     private String flightNumber;
 
     @ManyToOne
     @JoinColumn(name = "airplane_id", nullable = false)
     private Airplane airplane;
 
-    @Column(nullable = false)
+    @Column(name = "departure_time", nullable = false)
     private LocalDateTime departureTime;
 
-    @Column(nullable = false)
+    @Column(name = "arrival_time",nullable = false)
     private LocalDateTime arrivalTime;
 
     @ManyToOne

@@ -6,8 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "flight_crew")
 public class FlightCrew {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gestioniVoliSequenza")
-    @SequenceGenerator(name = "gestioniVoliSequenza", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name= "crew_id")
     private Integer crewId;
 
