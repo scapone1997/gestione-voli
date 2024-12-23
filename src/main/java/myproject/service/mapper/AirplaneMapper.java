@@ -7,9 +7,6 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "cdi")
 public interface AirplaneMapper {
-
-    AirplaneMapper INSTANCE = Mappers.getMapper(AirplaneMapper.class);
-
     AirplaneDTO airplaneToAirplaneDTO(Airplane airplane);
     Airplane airplaneDTOToAirplane(AirplaneDTO airplaneDTO);
 }

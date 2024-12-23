@@ -7,9 +7,6 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "cdi")
 public interface StaffMapper {
-
-    StaffMapper INSTANCE = Mappers.getMapper(StaffMapper.class);
-
     Staff toEntity(StaffDTO staffDTO);
     StaffDTO toDTO(Staff staff);
 }

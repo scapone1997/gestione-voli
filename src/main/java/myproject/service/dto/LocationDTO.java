@@ -1,23 +1,10 @@
-package myproject.domain;
+package myproject.service.dto;
 
-import jakarta.persistence.*;
+public class LocationDTO {
 
-@Entity
-@Table(name = "locations")
-public class Location {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gestioniVoliSequenza")
-    @SequenceGenerator(name = "gestioniVoliSequenza", allocationSize = 1)
-    @Column(name = "location_id")
     private Integer locationId;
-
-    @Column(name = "airport_code", nullable = false, length = 5)
     private String airportCode;
-
-    @Column(nullable = false, length = 50)
     private String city;
-
-    @Column(nullable = false, length = 50)
     private String country;
 
     public Integer getLocationId() {
