@@ -1,7 +1,5 @@
 package myproject.service.dto;
 
-import lombok.*;
-
 public class AirplaneDTO {
     private Integer airplaneId;
     private String model;

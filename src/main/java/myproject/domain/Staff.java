@@ -1,11 +1,7 @@
 package myproject.domain;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import jakarta.persistence.*;
 
-@Data
-@NoArgsConstructor
 @Entity
 @Table(name = "staff")
 public class Staff {
@@ -18,4 +14,28 @@ public class Staff {
 
     @Column(nullable = false, length = 50)
     private String role;
+
+    public Integer getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(Integer staffId) {
+        this.staffId = staffId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 }

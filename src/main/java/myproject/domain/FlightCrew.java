@@ -1,12 +1,7 @@
 package myproject.domain;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import jakarta.persistence.*;
 
-@Data
-@NoArgsConstructor
 @Entity
 @Table(name = "flight_crew")
 public class FlightCrew {
@@ -21,4 +16,28 @@ public class FlightCrew {
     @ManyToOne
     @JoinColumn(name = "staff_id", nullable = false)
     private Staff staff;
+
+    public Integer getCrewId() {
+        return crewId;
+    }
+
+    public void setCrewId(Integer crewId) {
+        this.crewId = crewId;
+    }
+
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public void setFlight(Flight flight) {
+        this.flight = flight;
+    }
+
+    public Staff getStaff() {
+        return staff;
+    }
+
+    public void setStaff(Staff staff) {
+        this.staff = staff;
+    }
 }
