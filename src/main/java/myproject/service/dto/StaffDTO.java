@@ -1,19 +1,9 @@
-package myproject.domain;
+package myproject.service.dto;
 
-import jakarta.persistence.*;
+public class StaffDTO {
 
-@Entity
-@Table(name = "staff")
-public class Staff {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name= "staff_id")
     private Integer staffId;
-
-    @Column(nullable = false, length = 100)
     private String name;
-
-    @Column(nullable = false, length = 50)
     private String role;
 
     public Integer getStaffId() {

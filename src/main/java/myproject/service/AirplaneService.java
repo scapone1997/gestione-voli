@@ -1,8 +1,6 @@
 package myproject.service;
 
 
-import io.quarkus.panache.common.Page;
-import io.quarkus.panache.common.Sort;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import myproject.repository.AirplaneRepository;
